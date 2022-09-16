@@ -1,0 +1,67 @@
+group 'com.jarvan.fluwx'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.4.10'
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 31
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    defaultConfig {
+        minSdkVersion 19
+        consumerProguardFiles 'consumer-proguard-rules.txt'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+
+    implementation (name: 'unicom_basic-1.0.3', ext: 'aar')
+    implementation(name: 'unicom_login_android_v5.2.1', ext: 'aar')
+    implementation(name: 'unicom_account_release_3.0.8', ext: 'aar')
+    implementation(name: 'unicom_punch_release_2.2.7', ext: 'aar')
+
+    api 'com.google.code.gson:gson:2.8.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'top.zibin:Luban:1.1.8'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    testImplementation 'junit:junit:4.12'
+}
