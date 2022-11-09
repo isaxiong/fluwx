@@ -56,8 +56,8 @@ dependencies {
 
     implementation (name: 'unicom_basic-1.0.3', ext: 'aar')
     implementation(name: 'unicom_login_android_v5.2.1', ext: 'aar')
-    implementation(name: 'unicom_account_release_3.0.8', ext: 'aar')
-    implementation(name: 'unicom_punch_release_2.2.7', ext: 'aar')
+    implementation(name: 'unicom_account_release_3.0.9', ext: 'aar')
+    implementation(name: 'unicom_punch_release_2.2.8', ext: 'aar')
 
     api 'com.google.code.gson:gson:2.8.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
